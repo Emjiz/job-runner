@@ -18,6 +18,7 @@ This custom background job runner executes PHP classes independently of Laravel'
 -   Configure `retries`, `priority`, and `delay`. The parameters must be an array, the first element will be your first paramater and so on.
 -   You can also run a pending jobs from the command line with `php artisan job:run-pending-jobs`. You can also setup schedules so that the command is executed in every certain interval you can seed the example in `routes/console.php`.
 -   You will can view error logs in `storage/logs/background_jobs_errors.log`.
+-   To avoid malicious jobs to run in the background you can go to `app/Services/BackgroundRunner.php` and add any Jobs which are allowed to run in the background in `$approvedClasses` array in the isApprovedClass method.
 
 Example:
 
