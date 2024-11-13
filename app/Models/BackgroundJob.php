@@ -17,6 +17,7 @@ class BackgroundJob extends Model
         'retry_count',
         'priority',
         'scheduled_at',
+        'exception',
     ];
 
     protected $casts = [

@@ -10,4 +10,4 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote')->hourly();
 
-Schedule::command('app:run-pending-jobs')->everyMinute();
+Schedule::command('job:run-pending-jobs')->everyMinute();

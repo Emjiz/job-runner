@@ -7,6 +7,7 @@
                 <th>Class</th>
                 <th>Method</th>
                 <th>Status</th>
+                <th>Exception</th>
                 <th>Retries</th>
                 <th>Priority</th>
                 <th>Actions</th>
@@ -19,13 +20,13 @@
                     <td>{{ $job->class }}</td>
                     <td>{{ $job->method }}</td>
                     <td>{{ $job->status }}</td>
+                    <td>{{ $job->exception ?? 'None' }}</td>
                     <td>{{ $job->retry_count }}</td>
                     <td>{{ $job->priority }}</td>
                     <td>
                         @if ($job->status === 'cancel')
                             <button wire:click="cancelJob({{ $job->id }})" class="text-red-500">Cancel</button>
-                        @elseif($job->status === 'failed')
-                            <button wire:click="retryJob({{ $job->id }})" class="text-green-500">Retry</button>
+                        @endif
 
                     </td>
                 </tr>

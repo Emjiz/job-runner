@@ -98,7 +98,7 @@ class BackgroundRunner
 
     protected function handleError($job, Exception $e)
     {
-        $job->update(['status' => 'failed', 'retry_count' => $job->retry_count + 1]);
+        $job->update(['status' => 'failed', 'exception' => $e, 'retry_count' => $job->retry_count + 1]);
         Log::channel("background_jobs_errors")->error("Job failed: {$e->getMessage()}");
 
         if ($job->retry_count < $this->maxRetries) {
